@@ -44,7 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7815a12bf98b62446bfd6d6a36de97d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSensitivityX: 80
-  defaultSensitivityY: 80
-  sensitivityX: 0
-  sensitivityY: 0
+  sfxMixer: {fileID: 24100000, guid: 0d6aac8cc21fc384c9a4dd975ef2561c, type: 2}

@@ -10,10 +10,13 @@ public class ElementRaycastController : MonoBehaviour
     public Transform cam;
     public static float maxInteractionDistance = 30f;
     public LayerMask layerMask;
+    public LayerMask obstacleLayer;
     public float sphereRadius = 1f;
     public GameObject fireball;
     public Transform fireballSpawnPoint;
     public Transform fireballSpawnRotation;
+    
+
 
     public bool isPulling;
     public bool isPushing;
@@ -66,30 +69,34 @@ public class ElementRaycastController : MonoBehaviour
                 if (Physics.SphereCast(cam.position, sphereRadius, cam.forward, out hit, maxInteractionDistance, layerMask))
                 
                 {
-                    string hitTag = hit.collider.tag;
-
-
-                    if (hitTag == "Water")
+                    if (!Physics.Linecast(cam.position, hit.point,obstacleLayer))
                     {
+                        string hitTag = hit.collider.tag;
 
-                        waterSling.SlingSpherecast(hit);
-                    }
-                    else if (hitTag == "Earth")
-                    {
-                        
-                        earthPlatform = hit.collider.GetComponent<EarthPlatformController>();
-                        isPulling = true;
 
-                    }
-                    else if (hitTag == "Fire")
-                    {
-                        GameObject fireballInstance = Instantiate(fireball, fireballSpawnPoint.position, fireballSpawnRotation.rotation);
-                        FireballBehaviour fireballBehaviour = fireballInstance.GetComponent<FireballBehaviour>();
-                        if (fireballBehaviour != null)
+                        if (hitTag == "Water")
                         {
-                            fireballBehaviour.DirectionCalc(cam.forward);
-                        }
 
+                            waterSling.SlingSpherecast(hit);
+                        }
+                        else if (hitTag == "Earth")
+                        {
+
+                            earthPlatform = hit.collider.GetComponent<EarthPlatformController>();
+                            isPulling = true;
+
+                        }
+                        else if (hitTag == "Fire")
+                        {
+                            GameObject fireballInstance = Instantiate(fireball, fireballSpawnPoint.position, fireballSpawnRotation.rotation);
+                            FireballBehaviour fireballBehaviour = fireballInstance.GetComponent<FireballBehaviour>();
+                            if (fireballBehaviour != null)
+                            {
+                                fireballBehaviour.DirectionCalc(cam.forward);
+                            }
+
+
+                        }
 
                     }
                 }
@@ -104,26 +111,30 @@ public class ElementRaycastController : MonoBehaviour
                 if (Physics.Raycast(cam.position, cam.forward, out hit, maxInteractionDistance, layerMask))
                 {
 
-                    string hitTag = hit.collider.tag;
-
-                    if (hitTag == "Ice")
+                    if (!Physics.Linecast(cam.position, hit.point,obstacleLayer))
                     {
-                        WaterFreeze waterFreeze = hit.collider.GetComponent<WaterFreeze>();
-                        if (waterFreeze != null)
+                        string hitTag = hit.collider.tag;
+
+                        if (hitTag == "Ice")
                         {
-                            waterFreeze.StartFreeze();
+                            WaterFreeze waterFreeze = hit.collider.GetComponent<WaterFreeze>();
+                            if (waterFreeze != null)
+                            {
+                                waterFreeze.StartFreeze();
+                            }
                         }
-                    }
-                    else if (hitTag == "Earth")
-                    {
+                        else if (hitTag == "Earth")
+                        {
 
-                        earthPlatform = hit.collider.GetComponent<EarthPlatformController>();
-                        isPushing = true;
-                        
+                            earthPlatform = hit.collider.GetComponent<EarthPlatformController>();
+                            isPushing = true;
 
-                    }
-                    else if (hitTag == "Fire")
-                    {
+
+                        }
+                        else if (hitTag == "Fire")
+                        {
+
+                        }
 
                     }
                 }

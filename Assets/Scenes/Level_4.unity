@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34163073, g: 0.39390552, b: 0.5146123, a: 1}
+  m_IndirectSpecularColor: {r: 0.34210044, g: 0.3946495, b: 0.5137361, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -789,11 +789,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 957350094646461191, guid: 2c220b58fde445b479f471f8f9328271,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 957350094646461191, guid: 2c220b58fde445b479f471f8f9328271,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.09
       objectReference: {fileID: 0}
@@ -841,16 +836,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4074596324235837443, guid: 2c220b58fde445b479f471f8f9328271,
-        type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4074596324235837443, guid: 2c220b58fde445b479f471f8f9328271,
-        type: 3}
-      propertyPath: velocityText
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5099812602815490809, guid: 2c220b58fde445b479f471f8f9328271,
         type: 3}
@@ -2685,11 +2670,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7257564026618464555, guid: 636406ec90ec49f4793c5258410c3d2e,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8949730058361465439, guid: 636406ec90ec49f4793c5258410c3d2e,
         type: 3}

@@ -27,6 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2527293455115080511}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.05318905, y: 3.0416286, z: -23.938467}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
@@ -35,7 +36,6 @@ Transform:
   - {fileID: 4518506018343898177}
   - {fileID: 5979890229117703673}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9089089546758512350
 MeshFilter:
@@ -424,6 +424,12 @@ PrefabInstance:
       propertyPath: TrailModule.colorOverTrail.maxGradient.m_ColorSpace
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4119676749626293969, guid: 101a8868c1adc5b40bdaf7526f47b7b5,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 0d6aac8cc21fc384c9a4dd975ef2561c,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

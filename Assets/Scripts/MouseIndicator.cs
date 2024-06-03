@@ -9,6 +9,7 @@ public class MouseIndicator : MonoBehaviour
     public Transform cam;
    
     public LayerMask layerMask;
+    public LayerMask obstacleLayer;
     public float sphereRadius = 1f;
     public Image IndicatorUÝ;
 
@@ -19,7 +20,7 @@ public class MouseIndicator : MonoBehaviour
 
     void Start()
     {
-        ;
+        
     }
 
     // Update is called once per frame
@@ -30,39 +31,43 @@ public class MouseIndicator : MonoBehaviour
         if (Physics.Raycast(cam.position, cam.forward, out hit, ElementRaycastController.maxInteractionDistance, layerMask))
            
         {
-
-            if (hit.collider.tag == waterTag)
-            {   
-
-                IndicatorUÝ.sprite = indicatorSprites[1];
-            }
-
-            else if (hit.collider.tag == earthTag)
+            if (!Physics.Linecast(cam.position, hit.point, obstacleLayer))
             {
-                IndicatorUÝ.sprite = indicatorSprites[2];
-            }
+                if (hit.collider.tag == waterTag)
+                {
 
-            else if (hit.collider.tag == fireTag)
+                    IndicatorUÝ.sprite = indicatorSprites[1];
+                }
+
+                else if (hit.collider.tag == earthTag)
+                {
+                    IndicatorUÝ.sprite = indicatorSprites[2];
+                }
+
+                else if (hit.collider.tag == fireTag)
+                {
+                    IndicatorUÝ.sprite = indicatorSprites[1];
+                }
+
+                else if (hit.collider.tag == iceTag)
+                {
+
+                    IndicatorUÝ.sprite = indicatorSprites[3];
+                }
+                else IndicatorUÝ.sprite = indicatorSprites[0];
+
+
+            }
+            else
             {
-                IndicatorUÝ.sprite = indicatorSprites[1];
+                IndicatorUÝ.sprite = indicatorSprites[0];
             }
-
-            else if (hit.collider.tag == iceTag)
-            {   
-                
-                IndicatorUÝ.sprite = indicatorSprites[3];
-            }
-             else  IndicatorUÝ.sprite = indicatorSprites[0];
-            
-
-
         }
-
         else
         {
             IndicatorUÝ.sprite = indicatorSprites[0];
         }
-
+        
 
         
     }

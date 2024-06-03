@@ -25,9 +25,10 @@ public class PlayerLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
-        
-            
+
+
+        sensX = SettingsData.GetSensitivityX();
+        sensY = SettingsData.GetSensitivityY();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

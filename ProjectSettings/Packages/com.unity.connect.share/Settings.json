@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"E:/Unity Games/Builds/AvatarWeb;D:/Elemental Parkour/WebGL0.2;D:/Elemental Parkour/WebGL;D:/Elemental Parkour/WebGl;;;;;;\"}"
+                "value": "{\"m_Value\":\"E:/Unity Games/Builds/Web;E:/Unity Games/Builds/AvatarWeb - Copy/TemplateData;E:/Unity Games/Builds/AvatarWeb;D:/Elemental Parkour/WebGL0.2;D:/Elemental Parkour/WebGL;D:/Elemental Parkour/WebGl;;;;\"}"
             }
         ]
     }

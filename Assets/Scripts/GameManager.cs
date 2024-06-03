@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeScore;
     public static bool timeStarted = false;
     private float time = 0f;
-    public Slider sensitivityX,sensivityY;
+
+    public Slider sensitivityX,sensivityY,SfxVolume;
 
 
     [Header("Level Change")]
@@ -37,9 +38,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, 300);
         }
 
-        PlayerLook.sensX = PlayerPrefs.GetFloat("SensitivityX");
-        PlayerLook.sensY = PlayerPrefs.GetFloat("SensitivityY");
-
+       
+        SfxVolume.value = PlayerPrefs.GetFloat("SfxVolume");
         sensitivityX.value = PlayerLook.sensX;
         sensivityY.value = PlayerLook.sensY;
 
@@ -125,8 +125,8 @@ public class GameManager : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1; pauseMenu.SetActive(false); crosshair.SetActive(true);
 
-        SettingsData.SetSensitivity(sensitivityX.value, sensivityY.value);
         
+
 
     }
     public void Pause()
