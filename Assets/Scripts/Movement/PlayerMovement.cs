@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Scene scene;
 
-   
+
 
     [Header("References")]
     private Rigidbody rb;
@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airDrag = 2f;
     [SerializeField] private float airMoveMultiplier = 0.4f;
     [SerializeField] private float updraftForce = 10f;
+    [SerializeField] private float timeStartVelThreshold=4;
     private Vector3 updraftVector;
     [SerializeField] private float iceDrag = 1f;
     [SerializeField] private float iceMoveSpeed = 2f;
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         moveSpeed = groundMoveSpeed;
-
+        
        
 
     }
@@ -198,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
             
            
 
-            if (rb.velocity.magnitude > 2)
+            if (rb.velocity.magnitude > timeStartVelThreshold)
             {
                 GameManager.timeStarted = true;
             }
@@ -343,19 +344,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded && collision.gameObject.CompareTag("Earth"))
         {
-            transform.parent = collision.transform.parent;
-            platform = collision.gameObject.GetComponentInParent<EarthPlatformController>(); ;
+           // transform.parent = collision.transform.parent;
+           // platform = collision.gameObject.GetComponentInParent<EarthPlatformController>();
+
+            platform = collision.gameObject.GetComponent<EarthPlatformController>();
+
             onPlatform = true;
             
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (isGrounded && collision.gameObject.CompareTag("Earth"))
+        if (collision.gameObject.CompareTag("Earth"))
         {
             
             platform = null;
-            transform.parent = null;
+           // transform.parent = null;
             onPlatform = false;
         }
     }

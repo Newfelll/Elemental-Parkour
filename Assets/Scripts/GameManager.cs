@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static bool timeStarted = false;
     private float time = 0f;
 
-    public Slider sensitivityX,sensivityY,SfxVolume;
+    public Slider sensitivityX,sensivityY,SfxVolume,MusicVolume,MasterVolume;
 
 
     [Header("Level Change")]
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         
         gameOver = false;
+        timeStarted = false;
         if (PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name) == null)
         {
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, 300);
@@ -40,6 +41,9 @@ public class GameManager : MonoBehaviour
 
        
         SfxVolume.value = PlayerPrefs.GetFloat("SfxVolume");
+        MusicVolume.value = PlayerPrefs.GetFloat("MusicVolume");
+        MasterVolume.value = PlayerPrefs.GetFloat("MasterVolume");
+
         sensitivityX.value = PlayerLook.sensX;
         sensivityY.value = PlayerLook.sensY;
 

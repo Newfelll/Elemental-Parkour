@@ -428,7 +428,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 24300002, guid: 0d6aac8cc21fc384c9a4dd975ef2561c,
+      objectReference: {fileID: 3875462851683151098, guid: 0d6aac8cc21fc384c9a4dd975ef2561c,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

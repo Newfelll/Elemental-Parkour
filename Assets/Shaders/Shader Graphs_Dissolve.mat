@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - dissolveAmount: 0
+    - dissolveAmount: 0.93
     m_Colors:
     - _edgeColor: {r: 0.3411765, g: 0.8125503, b: 0.9137255, a: 0}
   m_BuildTextureStacks: []
