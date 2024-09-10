@@ -55,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerHeight = 2f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] Transform groundCheck;
+    [SerializeField] private float fallMultiplier = 2.5f;
+    [SerializeField] private float coyoteTimer;
+    [SerializeField] private bool isCoyoteTime;
+    [SerializeField] private bool isJumped;
     
     public LayerMask groundMask;
     public LayerMask grounIceMask;
@@ -151,6 +155,9 @@ public class PlayerMovement : MonoBehaviour
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+
+           
+
             onIce = Physics.CheckSphere(groundCheck.position, groundDistance, grounIceMask);
 
 
@@ -163,13 +170,20 @@ public class PlayerMovement : MonoBehaviour
                 canDoubleJump = 1;
             }
 
-
             if (isGrounded && Input.GetKeyDown(jumpKey))
             {
                 jump = true;
 
 
+
             }
+            else if(Input.GetKeyDown(jumpKey) && !isJumped && isCoyoteTime &&!isGrounded)
+            {
+                jump= true;
+                isCoyoteTime = false;
+                Debug.Log("Coyote Time Jump");
+            }
+            
             else if (Input.GetKeyDown(jumpKey) && !isGrounded && canDoubleJump == 1)
             {
                 jump = true;
@@ -215,6 +229,7 @@ public class PlayerMovement : MonoBehaviour
         if (jump)
         {   jump = false;
             Jump();
+            isJumped = true;
         }
 
        
@@ -297,6 +312,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+  IEnumerator CoyoteTime()
+    {
+        isCoyoteTime = true;
+        yield return new WaitForSeconds(coyoteTimer);
+        isCoyoteTime = false;
+    }
+
 
   
 
@@ -352,6 +374,11 @@ public class PlayerMovement : MonoBehaviour
             onPlatform = true;
             
         }
+
+        if (collision.gameObject.layer == 6)
+        {
+            isJumped = false;
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -361,6 +388,11 @@ public class PlayerMovement : MonoBehaviour
             platform = null;
            // transform.parent = null;
             onPlatform = false;
+        }
+
+        if (collision.gameObject.layer==6 && !isJumped)
+        {
+            StartCoroutine(CoyoteTime());
         }
     }
 

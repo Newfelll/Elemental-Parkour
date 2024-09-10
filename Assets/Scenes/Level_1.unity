@@ -3615,6 +3615,11 @@ PrefabInstance:
       propertyPath: "IndicatorU\u0130"
       value: 
       objectReference: {fileID: 4908696710268685427}
+    - target: {fileID: 8175593443824328230, guid: 2c220b58fde445b479f471f8f9328271,
+        type: 3}
+      propertyPath: speed
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -28,14 +28,19 @@ public class SettingsData : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        
-
-
-        if (PlayerPrefs.GetFloat("SensitivityX")==0||PlayerPrefs.GetFloat("SensitivityY")==0)
+        if (PlayerPrefs.GetFloat("FirstRun") == 0)
         {
-            PlayerLook.sensY = 0.5f;
-            PlayerLook.sensX = 0.5f;
+            PlayerPrefs.SetFloat("FirstRun", 1);
+            PlayerPrefs.SetFloat("SensitivityX", 150f);
+            PlayerPrefs.SetFloat("SensitivityY", 150f);
+            PlayerPrefs.SetFloat("MusicVolume", 0.9f);
+            PlayerPrefs.SetFloat("SfxVolume", 0.9f);
+            PlayerPrefs.SetFloat("MasterVolume", 0.5f);
         }
+        PlayerPrefs.SetFloat("FirstRun", 1);
+
+
+       
     }
 
     private void Start()
